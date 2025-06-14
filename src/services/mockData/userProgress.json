@@ -1,0 +1,11 @@
+{
+  "streak": 5,
+  "totalSessions": 23,
+  "favoriteType": "meditation",
+  "lastCheckIn": "2024-01-15T09:30:00.000Z",
+  "sessionCounts": {
+    "meditation": 12,
+    "breathing": 7,
+    "journaling": 4
+  }
+}

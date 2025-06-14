@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "timestamp": "2024-01-15T09:45:00.000Z",
+    "prompt": "What moments brought you joy today? How can you create more of these experiences?",
+    "content": "This morning's meditation session brought me such peace. The way the sunlight filtered through the window during my practice made me feel connected to something bigger. I want to create more of these quiet, intentional moments by waking up 15 minutes earlier each day.",
+    "moodId": "1"
+  },
+  {
+    "id": "2",
+    "timestamp": "2024-01-14T17:00:00.000Z",
+    "prompt": "What aspects of your current situation are within your control? What isn't?",
+    "content": "I can control how I prepare for deadlines - breaking tasks into smaller chunks, asking for help when needed, and taking regular breaks. I can't control unexpected changes in scope or other people's timelines. Focusing on my preparation and response feels more empowering than worrying about everything else.",
+    "moodId": "2"
+  },
+  {
+    "id": "3",
+    "timestamp": "2024-01-13T20:30:00.000Z",
+    "prompt": "List three specific things you're grateful for today and why they matter to you.",
+    "content": "1. My family's laughter during dinner - it reminded me that joy can be found in simple moments together. 2. My colleague's help with the project - their support showed me I'm not alone in challenges. 3. The warm tea I had while reading - small comforts matter more than I often realize.",
+    "moodId": "3"
+  },
+  {
+    "id": "4",
+    "timestamp": "2024-01-12T19:30:00.000Z",
+    "prompt": "What would you tell a friend who was experiencing what you're going through?",
+    "content": "I would tell them that it's normal to feel nervous before important meetings, and that their anxiety shows they care about doing well. I'd remind them of their past successes and encourage them to trust in their preparation and abilities. Sometimes we need to be our own best friend.",
+    "moodId": "4"
+  }
+]

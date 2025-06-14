@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "timestamp": "2024-01-15T09:30:00.000Z",
+    "emotion": "calm",
+    "intensity": 7,
+    "notes": "Had a good morning meditation session. Feeling centered and ready for the day."
+  },
+  {
+    "id": "2",
+    "timestamp": "2024-01-14T16:45:00.000Z",
+    "emotion": "stressed",
+    "intensity": 3,
+    "notes": "Work deadline pressure is getting to me. Need to do some breathing exercises."
+  },
+  {
+    "id": "3",
+    "timestamp": "2024-01-13T20:15:00.000Z",
+    "emotion": "grateful",
+    "intensity": 8,
+    "notes": "Spent quality time with family today. Feeling blessed and content."
+  },
+  {
+    "id": "4",
+    "timestamp": "2024-01-12T12:00:00.000Z",
+    "emotion": "anxious",
+    "intensity": 4,
+    "notes": "Meeting with the team later today. Nervous but trying to stay positive."
+  },
+  {
+    "id": "5",
+    "timestamp": "2024-01-11T07:20:00.000Z",
+    "emotion": "happy",
+    "intensity": 8,
+    "notes": "Beautiful sunrise this morning. Started the day with gratitude and joy."
+  }
+]

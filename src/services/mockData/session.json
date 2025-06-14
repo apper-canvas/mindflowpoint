@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "type": "meditation",
+    "duration": 300,
+    "title": "Morning Mindfulness",
+    "description": "Start your day with intention and awareness. This gentle meditation helps you ground yourself and set a positive tone for the day ahead.",
+    "audioUrl": "/audio/morning-mindfulness.mp3"
+  },
+  {
+    "id": "2",
+    "type": "breathing",
+    "duration": 240,
+    "title": "4-7-8 Stress Relief",
+    "description": "A powerful breathing technique to quickly reduce anxiety and stress. Inhale for 4, hold for 7, exhale for 8.",
+    "audioUrl": "/audio/4-7-8-breathing.mp3"
+  },
+  {
+    "id": "3",
+    "type": "meditation",
+    "duration": 600,
+    "title": "Deep Relaxation",
+    "description": "Release tension from your body and mind with this progressive relaxation meditation. Perfect for unwinding after a long day.",
+    "audioUrl": "/audio/deep-relaxation.mp3"
+  },
+  {
+    "id": "4",
+    "type": "breathing",
+    "duration": 180,
+    "title": "Box Breathing",
+    "description": "Navy SEAL technique for maintaining calm under pressure. Inhale, hold, exhale, hold - each for 4 counts.",
+    "audioUrl": "/audio/box-breathing.mp3"
+  },
+  {
+    "id": "5",
+    "type": "journaling",
+    "duration": 900,
+    "title": "Gratitude Reflection",
+    "description": "Explore what you're grateful for and how appreciation can shift your perspective on daily challenges.",
+    "audioUrl": null
+  },
+  {
+    "id": "6",
+    "type": "meditation",
+    "duration": 420,
+    "title": "Loving Kindness",
+    "description": "Cultivate compassion for yourself and others through this heart-opening meditation practice.",
+    "audioUrl": "/audio/loving-kindness.mp3"
+  },
+  {
+    "id": "7",
+    "type": "breathing",
+    "duration": 300,
+    "title": "Energizing Breath",
+    "description": "Boost your energy and focus with this invigorating breathing exercise. Great for afternoon slumps.",
+    "audioUrl": "/audio/energizing-breath.mp3"
+  }
+]
