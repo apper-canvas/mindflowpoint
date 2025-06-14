@@ -97,9 +97,9 @@ const Layout = () => {
                 </NavLink>)}
 </nav>
         </div>
-    </aside>
+</aside>
     
-    <style jsx={true}>{`
+    <style jsx>{`
       @media (min-width: 1024px) {
         main {
           margin-left: 16rem;
