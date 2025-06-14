@@ -1,47 +1,75 @@
+import userProgressMockData from '@/services/mockData/userProgress.json';
+
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 class UserProgressService {
   constructor() {
-    this.storageKey = 'mindflow_user_progress';
-    this.data = this.loadData();
+    this.storageKey = 'userProgress';
+    this.data = null;
   }
 
-  loadData() {
+  async init() {
+    if (!this.data) {
+      this.data = await this.loadData();
+    }
+    return this.data;
+  }
+
+  async saveData(data) {
     try {
+      await delay(100); // Simulate API delay
+      localStorage.setItem(this.storageKey, JSON.stringify(data));
+      return data;
+    } catch (error) {
+      console.error('Error saving user progress:', error);
+      throw error;
+    }
+  }
+
+  async loadData() {
+    try {
+      await delay(100); // Simulate API delay
       const stored = localStorage.getItem(this.storageKey);
       if (stored) {
         return JSON.parse(stored);
       }
+      // Load initial mock data using ES6 import
+      const mockData = userProgressMockData;
+      await this.saveData(mockData);
+      return mockData;
     } catch (error) {
-      console.error('Error loading user progress:', error);
-    }
-    
-    // Load initial mock data
-    const mockData = require('../mockData/userProgress.json');
-    this.saveData(mockData);
-    return mockData;
+      console.error('Error loading user progress data:', error);
+      // Return default data structure if loading fails
+      return {
+        streak: 0,
+        totalSessions: 0,
+        favoriteType: "meditation",
+        lastCheckIn: null,
+        sessionCounts: {
+          meditation: 0,
+          breathing: 0,
+          journaling: 0
+        }
+      };
+}
   }
-
-  saveData(data) {
-    try {
-      localStorage.setItem(this.storageKey, JSON.stringify(data));
-    } catch (error) {
-      console.error('Error saving user progress:', error);
-    }
-  }
-
-  async get() {
+async get() {
+    await this.init();
     await delay(200);
     return { ...this.data };
   }
 
   async update(updates) {
+    await this.init();
     await delay(300);
     this.data = { ...this.data, ...updates };
-    this.saveData(this.data);
+    await this.saveData(this.data);
     return { ...this.data };
   }
 
+  async incrementStreak() {
+    await this.init();
+    await delay(250);
   async incrementStreak() {
     await delay(250);
     const today = new Date().toDateString();
@@ -54,21 +82,18 @@ class UserProgressService {
       
       // If last check-in was yesterday, increment streak; otherwise reset
       if (lastCheckIn === yesterdayStr) {
-        this.data.streak += 1;
-      } else if (lastCheckIn !== today) {
-        this.data.streak = 1;
-      }
+}
       
       this.data.lastCheckIn = new Date().toISOString();
-      this.saveData(this.data);
+      await this.saveData(this.data);
     }
     
     return { ...this.data };
   }
 
   async incrementSessions(sessionType) {
+    await this.init();
     await delay(250);
-    this.data.totalSessions += 1;
     
     // Update favorite session type based on usage
     const sessionCounts = this.data.sessionCounts || {};
@@ -81,21 +106,17 @@ class UserProgressService {
       if (count > maxCount) {
         maxCount = count;
         favoriteType = type;
-      }
-    }
-    
-    this.data.favoriteType = favoriteType;
+this.data.favoriteType = favoriteType;
     this.data.sessionCounts = sessionCounts;
-    this.saveData(this.data);
+    await this.saveData(this.data);
     
     return { ...this.data };
   }
 
   async getStats() {
+    await this.init();
     await delay(200);
     const stats = {
-      streak: this.data.streak || 0,
-      totalSessions: this.data.totalSessions || 0,
       favoriteType: this.data.favoriteType || 'meditation',
       sessionCounts: this.data.sessionCounts || {},
       lastCheckIn: this.data.lastCheckIn
