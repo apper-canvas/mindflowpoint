@@ -5,25 +5,18 @@ import mockJournalData from '../mockData/journalEntry.json';
 
 class JournalEntryService {
   constructor() {
-    this.entries = this.loadData();
+    this.storageKey = 'journalEntries';
+    this.data = this.loadData();
   }
 
-  // Get all journal entries
-  async getEntries() {
-    await delay(500); // Simulate API delay
-    return this.entries;
-  }
-
-  // Get a specific entry by ID
-  async getEntry(id) {
-    await delay(300);
-    return this.entries.find(entry => entry.id === id);
-  }
-
-  // Load initial mock data
+  // Load data from localStorage or fallback to mock data
   loadData() {
     try {
-      // Use imported JSON data instead of require()
+      const stored = localStorage.getItem(this.storageKey);
+      if (stored) {
+        return JSON.parse(stored);
+      }
+      // Fallback to mock data and save it to localStorage
       const mockData = mockJournalData || [];
       this.saveData(mockData);
       return mockData;
