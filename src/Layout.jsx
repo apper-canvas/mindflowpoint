@@ -95,11 +95,10 @@ const Layout = () => {
                     <ApperIcon name={route.icon} size={20} />
                     <span className="font-medium">{route.label}</span>
                 </NavLink>)}
-</nav>
-        </div>
-</aside>
-    
-    <style jsx>{`
+            </nav>
+        </div>)
+              
+            <style>{`
       @media (min-width: 1024px) {
         main {
           margin-left: 16rem;
@@ -107,8 +106,8 @@ const Layout = () => {
         }
       }
     `}</style>
-    </div>
-  );
+    </aside></div>
+  )
 };
 
 export default Layout;
