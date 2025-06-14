@@ -1,25 +1,36 @@
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+// Import mock data using ES module syntax
+import mockJournalData from '../mockData/journalEntry.json';
+
 class JournalEntryService {
   constructor() {
-    this.storageKey = 'mindflow_journal_entries';
-    this.data = this.loadData();
+    this.entries = this.loadData();
   }
 
+  // Get all journal entries
+  async getEntries() {
+    await delay(500); // Simulate API delay
+    return this.entries;
+  }
+
+  // Get a specific entry by ID
+  async getEntry(id) {
+    await delay(300);
+    return this.entries.find(entry => entry.id === id);
+  }
+
+  // Load initial mock data
   loadData() {
     try {
-      const stored = localStorage.getItem(this.storageKey);
-      if (stored) {
-        return JSON.parse(stored);
-      }
+      // Use imported JSON data instead of require()
+      const mockData = mockJournalData || [];
+      this.saveData(mockData);
+      return mockData;
     } catch (error) {
-      console.error('Error loading journal entries:', error);
+      console.error('Failed to load journal data:', error);
+      return [];
     }
-    
-    // Load initial mock data
-    const mockData = require('../mockData/journalEntry.json');
-    this.saveData(mockData);
-    return mockData;
   }
 
   saveData(data) {
