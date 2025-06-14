@@ -1,3 +1,5 @@
+import sessionMockData from '@/services/mockData/session.json';
+
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 class SessionService {
@@ -10,16 +12,30 @@ class SessionService {
     try {
       const stored = localStorage.getItem(this.storageKey);
       if (stored) {
-        return JSON.parse(stored);
+        const parsedData = JSON.parse(stored);
+        // Validate data structure
+        if (Array.isArray(parsedData)) {
+          return parsedData;
+        }
       }
     } catch (error) {
-      console.error('Error loading sessions:', error);
+      console.error('Error loading stored session data:', error);
     }
     
     // Load initial mock data
-    const mockData = require('../mockData/session.json');
-    this.saveData(mockData);
-    return mockData;
+    try {
+      // Validate mock data structure
+      if (Array.isArray(sessionMockData)) {
+        this.saveData(sessionMockData);
+        return sessionMockData;
+      } else {
+        console.error('Invalid mock data structure - expected array');
+        return [];
+      }
+    } catch (error) {
+      console.error('Error loading mock session data:', error);
+      return [];
+    }
   }
 
   saveData(data) {
