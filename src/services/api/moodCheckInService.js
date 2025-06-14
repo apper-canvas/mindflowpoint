@@ -1,9 +1,10 @@
+import mockMoodCheckInData from '@/services/mockData/moodCheckIn.json';
+
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 class MoodCheckInService {
   constructor() {
     this.storageKey = 'mindflow_mood_checkins';
-    this.data = this.loadData();
   }
 
   loadData() {
@@ -17,9 +18,8 @@ class MoodCheckInService {
     }
     
     // Load initial mock data
-    const mockData = require('../mockData/moodCheckIn.json');
-    this.saveData(mockData);
-    return mockData;
+    this.saveData(mockMoodCheckInData);
+    return mockMoodCheckInData;
   }
 
   saveData(data) {
