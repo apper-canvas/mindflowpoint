@@ -49,11 +49,12 @@ class UserProgressService {
           meditation: 0,
           breathing: 0,
           journaling: 0
-        }
-      };
 }
+      };
+    }
   }
-async get() {
+
+  async get() {
     await this.init();
     await delay(200);
     return { ...this.data };
@@ -67,10 +68,8 @@ async get() {
     return { ...this.data };
   }
 
-  async incrementStreak() {
+async incrementStreak() {
     await this.init();
-    await delay(250);
-  async incrementStreak() {
     await delay(250);
     const today = new Date().toDateString();
     const lastCheckIn = this.data.lastCheckIn ? new Date(this.data.lastCheckIn).toDateString() : null;
@@ -82,7 +81,10 @@ async get() {
       
       // If last check-in was yesterday, increment streak; otherwise reset
       if (lastCheckIn === yesterdayStr) {
-}
+        this.data.streak = (this.data.streak || 0) + 1;
+      } else {
+        this.data.streak = 1;
+      }
       
       this.data.lastCheckIn = new Date().toISOString();
       await this.saveData(this.data);
@@ -102,12 +104,16 @@ async get() {
     // Find most used session type
     let maxCount = 0;
     let favoriteType = 'meditation';
-    for (const [type, count] of Object.entries(sessionCounts)) {
+for (const [type, count] of Object.entries(sessionCounts)) {
       if (count > maxCount) {
         maxCount = count;
         favoriteType = type;
-this.data.favoriteType = favoriteType;
+      }
+    }
+    
+    this.data.favoriteType = favoriteType;
     this.data.sessionCounts = sessionCounts;
+    this.data.totalSessions = (this.data.totalSessions || 0) + 1;
     await this.saveData(this.data);
     
     return { ...this.data };
